@@ -1,0 +1,62 @@
+/* Weather Card  */
+.weather-card {
+  padding: 1rem;
+}
+
+.weather-card-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  background-color: #2fa4e7;
+  color: #fff;
+  padding: 1rem;
+}
+
+.weather-card-header {
+  text-align: center;
+  color: #fff;
+  /* border: 1px solid red; */
+}
+
+.weather-card-icon {
+  text-align: center;
+  font-size: 5rem;
+}
+
+.temperature-container {
+  text-align: center;
+  border-left: 1px solid #f9f6f7;
+  border-right: 1px solid #f9f6f7;
+  border-bottom: 1px solid #f9f6f7;
+  box-shadow: 0 7px 6px -6px #777;
+}
+
+/* Icon Styling */
+.sun {
+  color: #ff971d;
+}
+
+.cloud {
+  color: #3c4245;
+}
+
+/* Weekly Weather  */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1200px) {
+  /* Weekly Weather  */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1000px) {
+  /* Weekly Weather  */
+  .grid-container {
+    display: block;
+  }
+}

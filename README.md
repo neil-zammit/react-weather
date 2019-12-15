@@ -1,3 +1,20 @@
+<h1>7 Day Weather App</h1>
+<p>A react app that returns the weather forecast for the current week.</p>
+
+<h3>Feature Checklist:</h3>
+[x] Components set up
+
+[] Connect App to OpenWeatherMap API
+
+[] Get weekly forecast for one location
+
+<h3>Future features to implement:</h3>
+[] Implement a searchbar component
+
+[] Implement user search to get weather forecast for any location
+
+<hr />
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
