@@ -27,7 +27,7 @@ class WeeklyForecast extends React.Component {
                   <h1 style={{ color: '#fff' }}>Tuesday 17th December</h1>
                 </div>
                 <div className="weather-card-icon">
-                  <i class="fas fa-cloud-sun-rain"></i>
+                  <i className="fas fa-cloud-sun-rain"></i>
                 </div>
               </div>
               <div className="temperature-container">
@@ -41,7 +41,7 @@ class WeeklyForecast extends React.Component {
                   <h1 style={{ color: '#fff' }}>Wednesday 18th December</h1>
                 </div>
                 <div className="weather-card-icon">
-                  <i class="fas fa-cloud cloud"></i>
+                  <i className="fas fa-cloud cloud"></i>
                 </div>
               </div>
               <div className="temperature-container">
@@ -69,7 +69,7 @@ class WeeklyForecast extends React.Component {
                   <h1 style={{ color: '#fff' }}>Friday 20th December</h1>
                 </div>
                 <div className="weather-card-icon">
-                  <i class="fas fa-cloud-sun-rain"></i>
+                  <i className="fas fa-cloud-sun-rain"></i>
                 </div>
               </div>
               <div className="temperature-container">
