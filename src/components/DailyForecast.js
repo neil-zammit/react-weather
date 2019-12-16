@@ -29,19 +29,16 @@ class DailyForecast extends React.Component {
       })
       .catch(console.log);
 
+    const dayOne = new Date();
+    // // Get tomorrow's date
+    dayOne.setDate(dayOne.getDate() + 1);
+    // console.log(dayOne);
+    // console.log(date.getDate() + 1);
+
     // Get current date
     const date = new Date();
-    // Get day name
-    const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
-    // Get day number
-    const dayNum = date.getDate();
-    // Get month and year
-    const monthYear = date.toLocaleDateString('en-US', {
-      month: 'long',
-      year: 'numeric'
-    });
-    // Full date
-    const fullDate = `${dayName} ${dayNum} ${monthYear}`;
+    // Assign fullDate var to return value of the getFullDate function, passing in current date as param
+    const fullDate = this.props.getFullDate(date);
     // Set state
     this.setState({ fullDate: fullDate });
   }
