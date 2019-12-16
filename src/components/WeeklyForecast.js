@@ -1,5 +1,6 @@
 import React from 'react';
 import './forecast.css';
+import { apiKey } from '../api/apiKey';
 
 class WeeklyForecast extends React.Component {
   state = {
@@ -25,49 +26,84 @@ class WeeklyForecast extends React.Component {
 
   componentDidMount() {
     // Fetch API Data here (Maybe move this method to App Component and pass as props)
-    // fetch(
-    //   `http://api.openweathermap.org/data/2.5/weather?q=Valletta,mt&appid=${apiKey}`
-    // )
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     // API returns temperature in Kelvin
-    //     console.log(data);
-    //     // 0K - 273.15 = -273.1°С
-    //     // Mininum temperature to 2dp in °С
-    //     console.log((data.main.temp_min - 273.15).toFixed(2) + '°С');
-    //     // Maximum temperature to 2dp in °С
-    //     console.log((data.main.temp_max - 273.15).toFixed(2) + '°С');
-    //     // Update State
-    //     this.setState({ minTemp: (data.main.temp_min - 273.15).toFixed(2) });
-    //     this.setState({ maxTemp: (data.main.temp_max - 273.15).toFixed(2) });
-    //   })
-    //   .catch(console.log);
+    fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?q=Valletta,mt&appid=${apiKey}`
+    )
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        // Update State with Min Max Temp on day
+        // Temp calculated at 12:00pm for all days except for Day One
+        // Day One
+        this.setState({
+          minTempOne: (data.list[1].main.temp_min - 273.15).toFixed(2)
+        });
+        this.setState({
+          maxTempOne: (data.list[1].main.temp_max - 273.15).toFixed(2)
+        });
+        // Day Two
+        this.setState({
+          minTempTwo: (data.list[5].main.temp_min - 273.15).toFixed(2)
+        });
+        this.setState({
+          maxTempTwo: (data.list[5].main.temp_max - 273.15).toFixed(2)
+        });
+        // Day Three
+        this.setState({
+          minTempThree: (data.list[13].main.temp_min - 273.15).toFixed(2)
+        });
+        this.setState({
+          maxTempThree: (data.list[13].main.temp_max - 273.15).toFixed(2)
+        });
+        // Day Four
+        this.setState({
+          minTempFour: (data.list[21].main.temp_min - 273.15).toFixed(2)
+        });
+        this.setState({
+          maxTempFour: (data.list[21].main.temp_max - 273.15).toFixed(2)
+        });
+        // Day Five
+        this.setState({
+          minTempFive: (data.list[29].main.temp_min - 273.15).toFixed(2)
+        });
+        this.setState({
+          maxTempFive: (data.list[29].main.temp_max - 273.15).toFixed(2)
+        });
+        // Day Six
+        this.setState({
+          minTempSix: (data.list[37].main.temp_min - 273.15).toFixed(2)
+        });
+        this.setState({
+          maxTempSix: (data.list[37].main.temp_max - 273.15).toFixed(2)
+        });
+      })
+      .catch(console.log);
 
     // Get dates
     const dayOne = new Date();
     // Get tomorrow's date
-    dayOne.setDate(dayOne.getDate() + 1);
+    dayOne.setDate(dayOne.getDate());
     // console.log(dayOne);
 
     // Get successive dates
     const dayTwo = new Date();
-    dayTwo.setDate(dayTwo.getDate() + 2);
+    dayTwo.setDate(dayTwo.getDate() + 1);
     // console.log(dayTwo);
 
     const dayThree = new Date();
-    dayThree.setDate(dayThree.getDate() + 3);
+    dayThree.setDate(dayThree.getDate() + 2);
     // console.log(dayThree);
 
     const dayFour = new Date();
-    dayFour.setDate(dayFour.getDate() + 4);
+    dayFour.setDate(dayFour.getDate() + 3);
     // console.log(dayFour);
 
     const dayFive = new Date();
-    dayFive.setDate(dayFive.getDate() + 5);
+    dayFive.setDate(dayFive.getDate() + 4);
     // console.log(dayFive);
 
     const daySix = new Date();
-    daySix.setDate(daySix.getDate() + 6);
+    daySix.setDate(daySix.getDate() + 5);
     // console.log(daySix);
 
     // Get dates in correct formats and update state properties accordingly
@@ -102,8 +138,8 @@ class WeeklyForecast extends React.Component {
                 </div>
               </div>
               <div className="temperature-container">
-                <p>Min: 16°С</p>
-                <p>Max: 16.7°С</p>
+                <p>Min: {this.state.minTempOne}°С</p>
+                <p>Max: {this.state.maxTempOne}°С</p>
               </div>
             </div>
             <div className="weather-card">
@@ -116,8 +152,8 @@ class WeeklyForecast extends React.Component {
                 </div>
               </div>
               <div className="temperature-container">
-                <p>Min: 16°С</p>
-                <p>Max: 16.7°С</p>
+                <p>Min: {this.state.minTempTwo}°С</p>
+                <p>Max: {this.state.maxTempTwo}°С</p>
               </div>
             </div>
             <div className="weather-card">
@@ -130,8 +166,8 @@ class WeeklyForecast extends React.Component {
                 </div>
               </div>
               <div className="temperature-container">
-                <p>Min: 16°С</p>
-                <p>Max: 16.7°С</p>
+                <p>Min: {this.state.minTempThree}°С</p>
+                <p>Max: {this.state.maxTempThree}°С</p>
               </div>
             </div>
             <div className="weather-card">
@@ -144,8 +180,8 @@ class WeeklyForecast extends React.Component {
                 </div>
               </div>
               <div className="temperature-container">
-                <p>Min: 16°С</p>
-                <p>Max: 16.7°С</p>
+                <p>Min: {this.state.minTempFour}°С</p>
+                <p>Max: {this.state.maxTempFour}°С</p>
               </div>
             </div>
             <div className="weather-card">
@@ -158,8 +194,8 @@ class WeeklyForecast extends React.Component {
                 </div>
               </div>
               <div className="temperature-container">
-                <p>Min: 16°С</p>
-                <p>Max: 16.7°С</p>
+                <p>Min: {this.state.minTempFive}°С</p>
+                <p>Max: {this.state.maxTempFive}°С</p>
               </div>
             </div>
             <div className="weather-card">
@@ -172,8 +208,8 @@ class WeeklyForecast extends React.Component {
                 </div>
               </div>
               <div className="temperature-container">
-                <p>Min: 16°С</p>
-                <p>Max: 16.7°С</p>
+                <p>Min: {this.state.minTempSix}°С</p>
+                <p>Max: {this.state.maxTempSix}°С</p>
               </div>
             </div>
           </div>

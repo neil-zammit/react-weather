@@ -5,6 +5,7 @@ import { apiKey } from '../api/apiKey';
 class DailyForecast extends React.Component {
   state = {
     fullDate: '',
+    temp: '',
     minTemp: '',
     maxTemp: ''
   };
@@ -20,10 +21,11 @@ class DailyForecast extends React.Component {
         console.log(data);
         // 0K - 273.15 = -273.1°С
         // Mininum temperature to 2dp in °С
-        console.log((data.main.temp_min - 273.15).toFixed(2) + '°С');
+        // console.log((data.main.temp_min - 273.15).toFixed(2) + '°С');
         // Maximum temperature to 2dp in °С
-        console.log((data.main.temp_max - 273.15).toFixed(2) + '°С');
+        // console.log((data.main.temp_max - 273.15).toFixed(2) + '°С');
         // Update State
+        this.setState({ temp: (data.main.temp - 273.15).toFixed(2) });
         this.setState({ minTemp: (data.main.temp_min - 273.15).toFixed(2) });
         this.setState({ maxTemp: (data.main.temp_max - 273.15).toFixed(2) });
       })
@@ -58,8 +60,11 @@ class DailyForecast extends React.Component {
               </div>
             </div>
             <div className="temperature-container">
-              <p>Min: {this.state.minTemp}°С</p>
-              <p>Max: {this.state.maxTemp}°С</p>
+              <p style={{ padding: '1rem' }}>
+                Current Temperature: {this.state.temp}°С
+              </p>
+              {/* <p>Min: {this.state.minTemp}°С</p>
+              <p>Max: {this.state.maxTemp}°С</p> */}
             </div>
           </div>
         </div>

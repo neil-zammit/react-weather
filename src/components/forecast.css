@@ -1,6 +1,11 @@
 /* Weather Card  */
 .weather-card {
   padding: 1rem;
+  transition: all 0.2s;
+}
+
+.weather-card:hover {
+  transform: scale(1.1);
 }
 
 .weather-card-grid-container {

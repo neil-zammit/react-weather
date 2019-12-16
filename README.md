@@ -6,15 +6,15 @@
 
 [x] Connect App to OpenWeatherMap API
 
-[] Get current day forecast for one location (current weather data API call)
+[x] Get current day forecast for one location (current weather data API call)
 
-[] Update App state with API data and pass props to child components
+[x] Update App state with API data and pass props to child components
 
-[] Render date to display current date and six coming days
+[x] Render date to display current date and six coming days
 
 [] Render icon depending on weather forecast
 
-[] Get weekly forecast for one location (use different API call)
+[x] Get weekly forecast for one location (use different API call)
 
 <h3>Future features to implement:</h3>
 [] Implement a searchbar component
