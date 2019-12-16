@@ -4,6 +4,7 @@ import { apiKey } from '../api/apiKey';
 
 class DailyForecast extends React.Component {
   state = {
+    fullDate: '',
     minTemp: '',
     maxTemp: ''
   };
@@ -27,6 +28,22 @@ class DailyForecast extends React.Component {
         this.setState({ maxTemp: (data.main.temp_max - 273.15).toFixed(2) });
       })
       .catch(console.log);
+
+    // Get current date
+    const date = new Date();
+    // Get day name
+    const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
+    // Get day number
+    const dayNum = date.getDate();
+    // Get month and year
+    const monthYear = date.toLocaleDateString('en-US', {
+      month: 'long',
+      year: 'numeric'
+    });
+    // Full date
+    const fullDate = `${dayName} ${dayNum} ${monthYear}`;
+    // Set state
+    this.setState({ fullDate: fullDate });
   }
 
   render() {
@@ -37,7 +54,7 @@ class DailyForecast extends React.Component {
           <div className="weather-card">
             <div className="weather-card-grid-container">
               <div className="weather-card-header">
-                <h1 style={{ color: '#fff' }}>Sunday 15th December</h1>
+                <h1 style={{ color: '#fff' }}>{this.state.fullDate}</h1>
               </div>
               <div className="weather-card-icon">
                 <i className="fas fa-sun sun"></i>
