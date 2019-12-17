@@ -158,11 +158,7 @@ class WeeklyForecast extends React.Component {
                   <h1 style={{ color: '#fff' }}>{this.state.fullDateOne}</h1>
                 </div>
                 <div className="weather-card-icon">
-                  <img
-                    src={this.state.iconOne}
-                    className="iconStyle"
-                    alt="icon-img"
-                  ></img>
+                  <img src={this.state.iconOne} alt="icon-img"></img>
                   {/* <i className="fas fa-sun sun"></i> */}
                 </div>
               </div>
@@ -177,11 +173,7 @@ class WeeklyForecast extends React.Component {
                   <h1 style={{ color: '#fff' }}>{this.state.fullDateTwo}</h1>
                 </div>
                 <div className="weather-card-icon">
-                  <img
-                    src={this.state.iconTwo}
-                    className="iconStyle"
-                    alt="icon-img"
-                  ></img>
+                  <img src={this.state.iconTwo} alt="icon-img"></img>
                 </div>
               </div>
               <div className="temperature-container">
@@ -195,11 +187,7 @@ class WeeklyForecast extends React.Component {
                   <h1 style={{ color: '#fff' }}>{this.state.fullDateThree}</h1>
                 </div>
                 <div className="weather-card-icon">
-                  <img
-                    src={this.state.iconThree}
-                    className="iconStyle"
-                    alt="icon-img"
-                  ></img>
+                  <img src={this.state.iconThree} alt="icon-img"></img>
                 </div>
               </div>
               <div className="temperature-container">
@@ -213,11 +201,7 @@ class WeeklyForecast extends React.Component {
                   <h1 style={{ color: '#fff' }}>{this.state.fullDateFour}</h1>
                 </div>
                 <div className="weather-card-icon">
-                  <img
-                    src={this.state.iconFour}
-                    className="iconStyle"
-                    alt="icon-img"
-                  ></img>
+                  <img src={this.state.iconFour} alt="icon-img"></img>
                 </div>
               </div>
               <div className="temperature-container">
@@ -231,11 +215,7 @@ class WeeklyForecast extends React.Component {
                   <h1 style={{ color: '#fff' }}>{this.state.fullDateFive}</h1>
                 </div>
                 <div className="weather-card-icon">
-                  <img
-                    src={this.state.iconFive}
-                    className="iconStyle"
-                    alt="icon-img"
-                  ></img>
+                  <img src={this.state.iconFive} alt="icon-img"></img>
                 </div>
               </div>
               <div className="temperature-container">
@@ -249,11 +229,7 @@ class WeeklyForecast extends React.Component {
                   <h1 style={{ color: '#fff' }}>{this.state.fullDateSix}</h1>
                 </div>
                 <div className="weather-card-icon">
-                  <img
-                    src={this.state.iconSix}
-                    className="iconStyle"
-                    alt="icon-img"
-                  ></img>
+                  <img src={this.state.iconSix} alt="icon-img"></img>
                 </div>
               </div>
               <div className="temperature-container">

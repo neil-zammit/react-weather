@@ -12,7 +12,7 @@
 
 [x] Render date to display current date and six coming days
 
-[] Render icon depending on weather forecast
+[x] Render icon depending on weather forecast
 
 [x] Get weekly forecast for one location (use different API call)
 
