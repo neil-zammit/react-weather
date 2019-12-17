@@ -39,13 +39,17 @@
 }
 
 /* Icon Styling */
-.sun {
-  color: #ff971d;
+.iconStyle {
+  width: 160px;
 }
 
-.cloud {
+/* .sun {
+  color: #ff971d;
+} */
+
+/* .cloud {
   color: #3c4245;
-}
+} */
 
 /* Weekly Weather  */
 .grid-container {

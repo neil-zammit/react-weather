@@ -7,21 +7,27 @@ class WeeklyForecast extends React.Component {
     fullDateOne: '',
     minTempOne: '',
     maxTempOne: '',
+    iconOne: '',
     fullDateTwo: '',
     minTempTwo: '',
     maxTempTwo: '',
+    iconTwo: '',
     fullDateThree: '',
     minTempThree: '',
     maxTempThree: '',
+    iconThree: '',
     fullDateFour: '',
     minTempFour: '',
     maxTempFour: '',
+    iconFour: '',
     fullDateFive: '',
     minTempFive: '',
     maxTempFive: '',
+    iconFive: '',
     fullDateSix: '',
     minTempSix: '',
-    maxTempSix: ''
+    maxTempSix: '',
+    iconSix: ''
   };
 
   componentDidMount() {
@@ -41,12 +47,18 @@ class WeeklyForecast extends React.Component {
         this.setState({
           maxTempOne: (data.list[1].main.temp_max - 273.15).toFixed(2)
         });
+        this.setState({
+          iconOne: `http://openweathermap.org/img/wn/${data.list[1].weather[0].icon}@2x.png`
+        });
         // Day Two
         this.setState({
           minTempTwo: (data.list[5].main.temp_min - 273.15).toFixed(2)
         });
         this.setState({
           maxTempTwo: (data.list[5].main.temp_max - 273.15).toFixed(2)
+        });
+        this.setState({
+          iconTwo: `http://openweathermap.org/img/wn/${data.list[5].weather[0].icon}@2x.png`
         });
         // Day Three
         this.setState({
@@ -55,12 +67,18 @@ class WeeklyForecast extends React.Component {
         this.setState({
           maxTempThree: (data.list[13].main.temp_max - 273.15).toFixed(2)
         });
+        this.setState({
+          iconThree: `http://openweathermap.org/img/wn/${data.list[13].weather[0].icon}@2x.png`
+        });
         // Day Four
         this.setState({
           minTempFour: (data.list[21].main.temp_min - 273.15).toFixed(2)
         });
         this.setState({
           maxTempFour: (data.list[21].main.temp_max - 273.15).toFixed(2)
+        });
+        this.setState({
+          iconFour: `http://openweathermap.org/img/wn/${data.list[21].weather[0].icon}@2x.png`
         });
         // Day Five
         this.setState({
@@ -69,12 +87,18 @@ class WeeklyForecast extends React.Component {
         this.setState({
           maxTempFive: (data.list[29].main.temp_max - 273.15).toFixed(2)
         });
+        this.setState({
+          iconFive: `http://openweathermap.org/img/wn/${data.list[29].weather[0].icon}@2x.png`
+        });
         // Day Six
         this.setState({
           minTempSix: (data.list[37].main.temp_min - 273.15).toFixed(2)
         });
         this.setState({
           maxTempSix: (data.list[37].main.temp_max - 273.15).toFixed(2)
+        });
+        this.setState({
+          iconSix: `http://openweathermap.org/img/wn/${data.list[37].weather[0].icon}@2x.png`
         });
       })
       .catch(console.log);
@@ -134,7 +158,12 @@ class WeeklyForecast extends React.Component {
                   <h1 style={{ color: '#fff' }}>{this.state.fullDateOne}</h1>
                 </div>
                 <div className="weather-card-icon">
-                  <i className="fas fa-sun sun"></i>
+                  <img
+                    src={this.state.iconOne}
+                    className="iconStyle"
+                    alt="icon-img"
+                  ></img>
+                  {/* <i className="fas fa-sun sun"></i> */}
                 </div>
               </div>
               <div className="temperature-container">
@@ -148,7 +177,11 @@ class WeeklyForecast extends React.Component {
                   <h1 style={{ color: '#fff' }}>{this.state.fullDateTwo}</h1>
                 </div>
                 <div className="weather-card-icon">
-                  <i className="fas fa-cloud-sun-rain"></i>
+                  <img
+                    src={this.state.iconTwo}
+                    className="iconStyle"
+                    alt="icon-img"
+                  ></img>
                 </div>
               </div>
               <div className="temperature-container">
@@ -162,7 +195,11 @@ class WeeklyForecast extends React.Component {
                   <h1 style={{ color: '#fff' }}>{this.state.fullDateThree}</h1>
                 </div>
                 <div className="weather-card-icon">
-                  <i className="fas fa-cloud cloud"></i>
+                  <img
+                    src={this.state.iconThree}
+                    className="iconStyle"
+                    alt="icon-img"
+                  ></img>
                 </div>
               </div>
               <div className="temperature-container">
@@ -176,7 +213,11 @@ class WeeklyForecast extends React.Component {
                   <h1 style={{ color: '#fff' }}>{this.state.fullDateFour}</h1>
                 </div>
                 <div className="weather-card-icon">
-                  <i className="fas fa-sun sun"></i>
+                  <img
+                    src={this.state.iconFour}
+                    className="iconStyle"
+                    alt="icon-img"
+                  ></img>
                 </div>
               </div>
               <div className="temperature-container">
@@ -190,7 +231,11 @@ class WeeklyForecast extends React.Component {
                   <h1 style={{ color: '#fff' }}>{this.state.fullDateFive}</h1>
                 </div>
                 <div className="weather-card-icon">
-                  <i className="fas fa-cloud-sun-rain"></i>
+                  <img
+                    src={this.state.iconFive}
+                    className="iconStyle"
+                    alt="icon-img"
+                  ></img>
                 </div>
               </div>
               <div className="temperature-container">
@@ -204,7 +249,11 @@ class WeeklyForecast extends React.Component {
                   <h1 style={{ color: '#fff' }}>{this.state.fullDateSix}</h1>
                 </div>
                 <div className="weather-card-icon">
-                  <i className="fas fa-sun sun"></i>
+                  <img
+                    src={this.state.iconSix}
+                    className="iconStyle"
+                    alt="icon-img"
+                  ></img>
                 </div>
               </div>
               <div className="temperature-container">

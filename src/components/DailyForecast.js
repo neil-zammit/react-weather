@@ -7,7 +7,8 @@ class DailyForecast extends React.Component {
     fullDate: '',
     temp: '',
     minTemp: '',
-    maxTemp: ''
+    maxTemp: '',
+    icon: ''
   };
 
   componentDidMount() {
@@ -25,9 +26,15 @@ class DailyForecast extends React.Component {
         // Maximum temperature to 2dp in °С
         // console.log((data.main.temp_max - 273.15).toFixed(2) + '°С');
         // Update State
+        // Temp
         this.setState({ temp: (data.main.temp - 273.15).toFixed(2) });
         this.setState({ minTemp: (data.main.temp_min - 273.15).toFixed(2) });
         this.setState({ maxTemp: (data.main.temp_max - 273.15).toFixed(2) });
+        // Icon
+        this.setState({
+          icon: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+        });
+        // console.log(data.weather[0].icon);
       })
       .catch(console.log);
 
@@ -56,7 +63,12 @@ class DailyForecast extends React.Component {
                 <h1 style={{ color: '#fff' }}>{this.state.fullDate}</h1>
               </div>
               <div className="weather-card-icon">
-                <i className="fas fa-sun sun"></i>
+                {/* <i className="fas fa-sun sun"></i> */}
+                <img
+                  src={this.state.icon}
+                  className="iconStyle"
+                  alt="icon"
+                ></img>
               </div>
             </div>
             <div className="temperature-container">
