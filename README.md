@@ -17,7 +17,7 @@
 [x] Get weekly forecast for one location (use different API call)
 
 <h3>Future features to implement:</h3>
-[] Implement a searchbar component
+[x] Implement a searchbar component
 
 [] Implement user search to get weather forecast for any location
 

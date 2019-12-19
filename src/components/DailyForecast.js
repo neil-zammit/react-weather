@@ -53,9 +53,10 @@ class DailyForecast extends React.Component {
   }
 
   render() {
+    const { city } = this.props;
     return (
       <div className="container mt-5">
-        <h2>The Weekly Weather Forecast for Valletta</h2>
+        <h2>The Weekly Weather Forecast for {city}</h2>
         <div className="container mt-5">
           <div className="weather-card">
             <div className="weather-card-grid-container">

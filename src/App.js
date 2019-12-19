@@ -1,9 +1,29 @@
 import React from 'react';
 import Header from './components/Header';
+import Searchbar from './components/Searchbar';
 import DailyForecast from './components/DailyForecast';
 import WeeklyForecast from './components/WeeklyForecast';
 
 class App extends React.Component {
+  state = {
+    cityInput: 'Valletta',
+    city: 'Valletta'
+  };
+
+  onHandleChange = e => {
+    // Update state with form input value
+    console.log(e.target.value);
+    this.setState({ cityInput: e.target.value });
+    console.log(`State: ${this.state.city}`);
+  };
+
+  onFormSubmit = e => {
+    // Prevent form submit
+    e.preventDefault();
+    // Update state on submit
+    this.setState({ city: this.state.cityInput });
+  };
+
   // Get full date function
   getFullDate = date => {
     // Get day name
@@ -27,7 +47,12 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <DailyForecast getFullDate={this.getFullDate} />
+        <Searchbar
+          cityInput={this.state.cityInput}
+          onHandleChange={this.onHandleChange}
+          onFormSubmit={this.onFormSubmit}
+        />
+        <DailyForecast city={this.state.city} getFullDate={this.getFullDate} />
         <WeeklyForecast getFullDate={this.getFullDate} />
       </div>
     );
