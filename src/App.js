@@ -24,13 +24,27 @@ class App extends React.Component {
     console.log(`State: ${this.state.city}`);
   };
 
+  // Async Function to setState
+  asyncGetWeather() {
+    return new Promise(resolve => {
+      // setState of city state property according to user input and resolve promise
+      this.setState({ city: this.state.cityInput });
+      resolve();
+    });
+  }
+
   onFormSubmit = e => {
     // Prevent form submit
     e.preventDefault();
-    // Update state on submit
-    this.setState({ city: this.state.cityInput });
-    // Call function in DailyForecast component using ref
-    this.DailyForecastElement.current.getWeather();
+    // Call async function which sets state of city according to user input
+    this.asyncGetWeather().then(
+      // Add a slight delay before calling function which makes API call and rerenders,
+      // as if not this will be carried out before state is updated and component will not
+      // render with the correct data.
+      setTimeout(() => {
+        this.DailyForecastElement.current.getWeather();
+      }, 0.1)
+    );
   };
 
   // Get full date function
