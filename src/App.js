@@ -5,7 +5,14 @@ import DailyForecast from './components/DailyForecast';
 import WeeklyForecast from './components/WeeklyForecast';
 
 class App extends React.Component {
+  // Create ref to the DailyForecast component
+  constructor(props) {
+    super(props);
+    this.DailyForecastElement = React.createRef();
+  }
+
   state = {
+    // Deafault values for state set to 'Valletta'
     cityInput: 'Valletta',
     city: 'Valletta'
   };
@@ -22,6 +29,8 @@ class App extends React.Component {
     e.preventDefault();
     // Update state on submit
     this.setState({ city: this.state.cityInput });
+    // Call function in DailyForecast component using ref
+    this.DailyForecastElement.current.getWeather();
   };
 
   // Get full date function
@@ -52,7 +61,11 @@ class App extends React.Component {
           onHandleChange={this.onHandleChange}
           onFormSubmit={this.onFormSubmit}
         />
-        <DailyForecast city={this.state.city} getFullDate={this.getFullDate} />
+        <DailyForecast
+          ref={this.DailyForecastElement}
+          city={this.state.city}
+          getFullDate={this.getFullDate}
+        />
         <WeeklyForecast getFullDate={this.getFullDate} />
       </div>
     );
