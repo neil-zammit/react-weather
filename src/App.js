@@ -5,14 +5,18 @@ import DailyForecast from './components/DailyForecast';
 import WeeklyForecast from './components/WeeklyForecast';
 
 class App extends React.Component {
-  // Create ref to the DailyForecast component
   constructor(props) {
     super(props);
+    // Create ref to the DailyForecast component in order to call class method
+    // in DailyForecast component from App component (parent)
     this.DailyForecastElement = React.createRef();
+    // Create ref to the WeeklyForecast component in order to call class method
+    // in WeeklyForecast component from App component (parent)
+    this.WeeklyForecastElement = React.createRef();
   }
 
   state = {
-    // Deafault values for state set to 'Valletta'
+    // Default values for state set to 'Valletta'
     cityInput: 'Valletta',
     city: 'Valletta'
   };
@@ -43,6 +47,7 @@ class App extends React.Component {
       // render with the correct data.
       setTimeout(() => {
         this.DailyForecastElement.current.getWeather();
+        this.WeeklyForecastElement.current.getWeeklyWeather();
       }, 0.1)
     );
   };
@@ -80,7 +85,11 @@ class App extends React.Component {
           city={this.state.city}
           getFullDate={this.getFullDate}
         />
-        <WeeklyForecast getFullDate={this.getFullDate} />
+        <WeeklyForecast
+          ref={this.WeeklyForecastElement}
+          city={this.state.city}
+          getFullDate={this.getFullDate}
+        />
       </div>
     );
   }

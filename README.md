@@ -1,6 +1,8 @@
 <h1>7 Day Weather App</h1>
 <p>A react app that returns the weather forecast for the current week.</p>
 
+<p>Default instance returns the weather forecast for Valletta. Use the searchbar to get the forecast for any city featured in the OpenWeatherMap API.</p>
+
 <h3>Feature Checklist:</h3>
 [x] Components set up
 
@@ -19,7 +21,7 @@
 <h3>Future features to implement:</h3>
 [x] Implement a searchbar component
 
-[] Implement user search to get weather forecast for any location
+[x] Implement user search to get weather forecast for any location
 
 <hr />
 
